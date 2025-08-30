@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们</title>
+    <style>
+        /* 页面整体样式 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #191B1F; /* 背景颜色与对方网站匹配 */
+        }
+        /* iframe 容器 */
+        .iframe-container {
+            width: 100%;
+            height: 100vh; /* 占满整个视口高度 */
+            border: none;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* 浮动图标侧边栏 */
+        .social-sidebar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px; /* 仍然保留一点内边距，让图标不完全贴边 */
+            z-index: 1000;
+        }
+        .social-sidebar a {
+            /* 移除背景和边框 */
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+        }
+        .social-sidebar a:hover {
+            transform: scale(1.1);
+        }
+        .social-sidebar svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe-container">
+        <iframe src="https://www.gomarketsdod.com/en"></iframe>
+    </div>
+
+    <div class="social-sidebar">
+        <a href="https://line.me/ti/p/HTgrcg4NVK" title="">
+            <!-- 客服头像图标 - 包含人物轮廓和对话气泡 -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <!-- 圆形背景 -->
+                <circle cx="50" cy="50" r="45" fill="#4A90E2"/>
+                
+                <!-- 客服人物头部轮廓 -->
+                <circle cx="50" cy="35" r="15" fill="#FFFFFF"/>
+                
+                <!-- 客服人物身体（简化） -->
+                <path d="M50,50 L30,80 L70,80 Z" fill="#FFFFFF"/>
+                
+                <!-- 对话气泡 -->
+                <path d="M70,40 Q85,40 85,55 L85,65 L75,60 L75,55 Q75,45 70,40 Z" fill="#FFFFFF"/>
+                <circle cx="60" cy="50" r="3" fill="#FFFFFF"/>
+                <circle cx="68" cy="50" r="3" fill="#FFFFFF"/>
+                <circle cx="76" cy="50" r="3" fill="#FFFFFF"/>
+            </svg>
+        </a>
+    </div>
+
+</body>
+</html>
