@@ -27,34 +27,51 @@
         /* 浮动图标侧边栏 */
         .social-sidebar {
             position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
+            bottom: 10px; /* 距离页面底部 10px */
+            right: 0; /* 紧贴页面右侧 */
             display: flex;
             flex-direction: column;
             gap: 15px;
-            padding: 10px; /* 仍然保留一点内边距，让图标不完全贴边 */
+            padding: 10px;
             z-index: 1000;
         }
         .social-sidebar a {
-            /* 移除背景和边框 */
             background-color: transparent;
             border-radius: 0;
             padding: 0;
-            transition: transform 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
+            display: flex; /* 让内部图片可以居中 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            width: 50px; /* 设置链接容器的宽度 */
+            height: 50px; /* 设置链接容器的高度 */
+
+            /* 添加动画效果 */
+            animation: pulse 2s infinite alternate; /* 2秒一个循环，无限重复，交替播放 */
+            transition: transform 0.3s ease-in-out; /* 平滑的悬停过渡效果 */
         }
         .social-sidebar a:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* 鼠标悬停时的放大效果 */
+            animation: none; /* 鼠标悬停时停止呼吸动画 */
         }
-        .social-sidebar svg {
-            width: 100%;
-            height: 100%;
-            display: block;
+        /* 控制图片本身的尺寸 */
+        .social-sidebar .social-icon {
+            width: 100%; /* 图片宽度填充父容器 */
+            height: 100%; /* 图片高度填充父容器 */
+            object-fit: contain; /* 确保图片完整显示，不会裁剪，如果图片比例和容器不符会留白 */
+            display: block; /* 移除图片可能自带的底部间隙 */
+        }
+
+        /* 定义动画 */
+        @keyframes pulse {
+            0% {
+                transform: scale(1); /* 原始大小 */
+            }
+            50% {
+                transform: scale(2); /* 放大一点点 */
+            }
+            100% {
+                transform: scale(1); /* 恢复原始大小 */
+            }
         }
     </style>
 </head>
@@ -65,24 +82,8 @@
     </div>
 
     <div class="social-sidebar">
-        <a href="https://line.me/ti/p/HTgrcg4NVK" title="">
-            <!-- 客服头像图标 - 包含人物轮廓和对话气泡 -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                <!-- 圆形背景 -->
-                <circle cx="50" cy="50" r="45" fill="#4A90E2"/>
-                
-                <!-- 客服人物头部轮廓 -->
-                <circle cx="50" cy="35" r="15" fill="#FFFFFF"/>
-                
-                <!-- 客服人物身体（简化） -->
-                <path d="M50,50 L30,80 L70,80 Z" fill="#FFFFFF"/>
-                
-                <!-- 对话气泡 -->
-                <path d="M70,40 Q85,40 85,55 L85,65 L75,60 L75,55 Q75,45 70,40 Z" fill="#FFFFFF"/>
-                <circle cx="60" cy="50" r="3" fill="#FFFFFF"/>
-                <circle cx="68" cy="50" r="3" fill="#FFFFFF"/>
-                <circle cx="76" cy="50" r="3" fill="#FFFFFF"/>
-            </svg>
+        <a href="https://line.me/ti/p/HTgrcg4NVK" title="サービスセンター">
+            <img src="kefu.png" alt="サービスセンター" class="social-icon">
         </a>
     </div>
 
